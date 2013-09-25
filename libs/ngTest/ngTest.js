@@ -1,5 +1,5 @@
 /*
- * ngTest.js 0.1.2 08-29-2013
+ * ngTest.js 0.1.3 08-29-2013
  * copyright (c) 2013 Andrew Luetgers
  * you are free to distribute ngTest.js under the MIT license
  * https://github.com/andrewluetgers/ngTest
@@ -51,8 +51,8 @@ var ngTest = (function(root) {
 						// supports modules that have the same name as a dependency
 						// e.g. titleService, we demarcate modules with a ':' suffix
 						// we can indicate the module and the dependency via the prefix "+" or ":+"
- 						var name = val.replace(/\+$/, "");
- 						name = name.replace(/:$/, "");
+						var name = val.replace(/\+$/, "");
+						name = name.replace(/:$/, "");
 
 						if (isModuleAndDep(val)) {
 							deps.push(name);
@@ -116,7 +116,7 @@ var ngTest = (function(root) {
 					modCode = 			"beforeEach(function() {";
 					_.each(mods, function(mod) {
 						// if running under the ngExampleApp loader skip things that look like templates
-						if("ngExampleApp" in window && isTemplate(mod)) {
+						if("ngExampleApp" in root && isTemplate(mod)) {
 							modCode += 		" /*\"module('"+mod+"');\" eliminated for compatibility with ngExampleApp loader */";
 						} else {
 							modCode += 		"module('"+mod+"');";
@@ -199,7 +199,7 @@ var ngTest = (function(root) {
 
 				code += compile ? " " +compileWithScope : "/* compileWithScope util not required */";
 
-				// add our ngExampleApp support
+				// add our deferred injection support
 				function beforeInjections_() {
 					_.each(testInjections.before, function(fn) {
 						if (_.isFunction(fn)) {
@@ -216,12 +216,11 @@ var ngTest = (function(root) {
 					});
 				}
 
-				if ("ngExampleApp" in root) {
-					console.log("WTF", ngExampleApp);
-					if (testInjections.before.length) {
+				if ("testInjections" in root) {
+					if (_.isArray(testInjections.before) && testInjections.before.length) {
 						before.unshift(beforeInjections_);
 					}
-					if (testInjections.after.length) {
+					if (_.isArray(testInjections.after) && testInjections.after.length) {
 						after.unshift(afterInjections_);
 					}
 				}

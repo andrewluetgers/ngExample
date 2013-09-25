@@ -26,14 +26,14 @@ this also works with file:/// urls, as opposed to hosting the project files, so 
 Safari should work fine with no changes, [chrome requires a command line flag "--allow-file-access-from-files"](http://stackoverflow.com/questions/5224017/origin-null-is-not-allowed-by-access-control-allow-origin-in-chrome-why).
 
 ## ngTest
-This project also makes use of [ngTest](https://github.com/andrewluetgers/ngTest) to help with the test bootstrapping process and reduce some of the Jasmine boilerplate for Angular.js code. This allows for a test code-generation phase that we can tap into to allow the tests to load compiled assests like templates during the build and load individual templates in isolation using the ngExample loader without having two different spec tests. **As such, spec tests need to be written in the ngTest format.** A converter and or support for vanilla spec tests should be simple but remains an outstanding todo item.
+This project also makes use of [ngTest](https://github.com/andrewluetgers/ngTest) to help with the test bootstrapping process and reduce some of the Jasmine boilerplate for Angular.js code. This allows for a test code-generation phase that we can tap into to allow the tests to load compiled assests like templates during the build and load individual templates in isolation using the ngExample loader without having two different spec tests. This is accomplished automatically by not loading any modules defined in the test that contain 'template' or '.tpl.html' in the module name. **As such, spec tests need to be written in the ngTest format.** A converter and or support for vanilla spec tests should be simple but remains an outstanding todo item.
 
 ## The example definition file
 
 The key to making all this work is a single file you add to each module folder that defines how to load the assets, what html should be in the example and what custom code is required for the specific example.
 
 ### Example file type and naming
-This file can either be html or javascript either file should be prefixed with eg to denote that this is an "example given". This naming convention allows us to add exclusionary rules to the grunt build so that our examples are not compiled up with the rest of our source code.
+This file can either be html or javascript either file extension should be prefixed with eg. to denote that this is an "example given". This naming convention allows us to add exclusionary rules to the grunt and Karma configs so that our examples do not interfere with our more traditional build an test cycle.
 
 Here are some examples.
 
