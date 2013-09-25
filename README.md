@@ -9,10 +9,20 @@ Within a larger project Angular.js code should be broken down into smaller modul
 ngExample basically mimics the build process. It currently compiles stylus files on the fly in the browser *(less could be added easily)*, loads individual assets, vendor files, css, angular modules and templates from source rather than as built assets. This allows individual parts of your code-base to be loaded and tested in isolation from other code in your project without having a complicated or separate build process for each module folder.
 
 ## Usage / Example Project
-This project is best used as part of a larger Angular.js project structure. An example project based on [ngBoilerplate](http://joshdmiller.github.io/ng-boilerplate/) that also uses ngExample is available at https://github.com/andrewluetgers/ngExampleProject
+This project is best used as part of a larger Angular.js project structure.
+An example project based on [ngBoilerplate](http://joshdmiller.github.io/ng-boilerplate/)
+that also uses ngExample is available at https://github.com/andrewluetgers/ngExampleProject
+
+### use it
+once you have your example definition file set up (see below) and the ngExample folder properly located in yourproject/dev/ngExample
+then you can load the ngExample.html file and start loading examples. There is no fancy ui, just a single url parameter 'example' which
+is the path from your project root to your example definition file like so:
+http://localhost:1337/yourProject/dev/ngExample/ngExample.html?example=src/common/simplePicker/simplePicker.eg.html
+this also works with file:/// urls as opposed to hosting the project so long as your browser security settings are configured properly.
+Safari should work fine with no changes, [chrome requires a command line flag "--allow-file-access-from-files"](http://stackoverflow.com/questions/5224017/origin-null-is-not-allowed-by-access-control-allow-origin-in-chrome-why).
 
 ## ngTest
-This project also makes use of [ngTest](https://github.com/andrewluetgers/ngTest) to help with the test bootstrapping process and reduce some of the Jasmine boilerplate for Angular.js code. This allows for a test code-generation phase that we can tap into to allow the tests to load compiled assests like templates during the build and load individual templates in isolation using the ngExample loader without having two different spec tests. **As such spec tests need to be written in the ngTest format.** A converter and or support for vanilla spec tests should be simple but remains an outstanding todo item.
+This project also makes use of [ngTest](https://github.com/andrewluetgers/ngTest) to help with the test bootstrapping process and reduce some of the Jasmine boilerplate for Angular.js code. This allows for a test code-generation phase that we can tap into to allow the tests to load compiled assests like templates during the build and load individual templates in isolation using the ngExample loader without having two different spec tests. **As such, spec tests need to be written in the ngTest format.** A converter and or support for vanilla spec tests should be simple but remains an outstanding todo item.
 
 ## The example definition file
 
