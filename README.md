@@ -8,7 +8,7 @@ Within a larger project Angular.js code should be broken down into smaller modul
 
 ngExample basically mimics the build process. It currently compiles stylus files on the fly in the browser *(less could be added easily)*, loads individual assets, vendor files, css, angular modules and templates from source rather than as built assets. This allows individual parts of your code-base to be loaded and tested in isolation from other code in your project without having a complicated or separate build process for each module folder.
 
-## Example Project
+## Usage / Example Project
 This project is best used as part of a larger Angular.js project structure. An example project based on [ngBoilerplate](http://joshdmiller.github.io/ng-boilerplate/) that also uses ngExample is available at https://github.com/andrewluetgers/ngExampleProject
 
 ## ngTest
