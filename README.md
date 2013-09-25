@@ -3,6 +3,8 @@ ngExample
 
 Load an isolated bit of angular code for development, debugging and testing.
 
+![ngExample screenshot](https://raw.github.com/andrewluetgers/ngExample/master/ngExample.jpg)
+
 ## Theory
 Within a larger project Angular.js code should be broken down into smaller module folders containing js, templates, styles, spec tests, and examples. It is within this structure that ngExample helps make these isolated bits of code easier to develop by providing a simple loader and generic app context to test and develop these assets in isolation from the larger project.
 
