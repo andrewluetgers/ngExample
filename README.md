@@ -16,9 +16,9 @@ that also uses ngExample is available at https://github.com/andrewluetgers/ngExa
 ### use it
 once you have your example definition file set up (see below) and the ngExample folder properly located in yourproject/dev/ngExample
 then you can load the ngExample.html file and start loading examples. There is no fancy ui, just a single url parameter 'example' which
-is the path from your project root to your example definition file like so:
-http://localhost:1337/yourProject/dev/ngExample/ngExample.html?example=src/common/simplePicker/simplePicker.eg.html
-this also works with file:/// urls as opposed to hosting the project so long as your browser security settings are configured properly.
+is the path from your project root to your example definition file like so:</br>
+http://localhost:1337/yourProject/dev/ngExample/ngExample.html?example=src/common/simplePicker/simplePicker.eg.html</br>
+this also works with file:/// urls, as opposed to hosting the project files, so long as your browser security settings are configured properly.
 Safari should work fine with no changes, [chrome requires a command line flag "--allow-file-access-from-files"](http://stackoverflow.com/questions/5224017/origin-null-is-not-allowed-by-access-control-allow-origin-in-chrome-why).
 
 ## ngTest
